@@ -1,0 +1,11 @@
+<div>
+    <label>Age:</label>
+    <input type="text" [(ngModel)]="enteredAge" placeholder="Enter your age" class="form-control" />
+</div>
+<div>
+    <label>Salary:</label>
+    <input type="text" [(ngModel)]="enteredSalary" placeholder="Enter your salary" class="form-control" />
+</div>
+<div class="py-3">
+    <button class="form-control btn-primary" (click)="onFilter($event)">Filter</button>
+</div>
