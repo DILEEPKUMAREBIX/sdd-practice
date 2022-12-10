@@ -1,0 +1,25 @@
+<div class="col-lg-2 mt-4">
+    <button class="btn col-lg-12 col-12 btn-danger" (click)="addCounter()">Add</button>
+</div>
+
+<div *ngFor="let item of counters">
+    <div class="container text-center mt-5 col-lg-6 bg-light p-5">
+        <h1 for="">Counter: {{item}}</h1>
+        <h2>{{countNumber}}</h2>
+
+        <div class="row">
+            <div class="col-lg-4 mt-4">
+                <button class="btn col-lg-4 col-12 btn-dark" (click)="resetButton()">Reset</button>
+            </div>
+            <div class="col-lg-2 mt-4">
+                <button class="btn col-lg-12 col-12 btn-success" (click)="increaseButton()">Increase Number</button>
+            </div>
+            <div class="col-lg-2 mt-4">
+                <button class="btn col-lg-12 col-12 btn-danger" (click)="decreaseButton()">Decrease Number</button>
+            </div>
+            <div class="col-lg-2 mt-4">
+                <button class="btn col-lg-12 col-12 btn-danger" (click)="removeCounter(item)">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>
