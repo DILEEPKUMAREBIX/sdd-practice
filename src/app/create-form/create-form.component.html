@@ -1,0 +1,16 @@
+<div class="form-group p-3">
+    <h1>Create Member</h1>
+    <label>First Name</label>
+    <input class="form-control" type="text" [(ngModel)]="firstName"/>
+
+    <label>Last Name</label>
+    <input class="form-control" type="text" [(ngModel)]="lastName"/>
+
+    <label>Salary</label>
+    <input type="text" class="form-control" [(ngModel)]="salary"/>
+
+    <label>Age</label>
+    <input type="text" class="form-control" [(ngModel)]="age"/>
+
+    <button class="btn btn-primary m-2 p-2" (click)="onSubmit()">Submit</button>
+</div>

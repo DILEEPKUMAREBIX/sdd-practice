@@ -1,6 +1,8 @@
-<!-- <div class="p-3">
-  <app-filter></app-filter>
-  <div class="form-group p-3">
+
+
+<div class="p-3" style="border: 3px solid red;">
+  <app-create-form (passMember)="onDataEntered($event)"></app-create-form>
+  <div class="form-group p-3" >
     <div class="row">
       <div *ngFor="let member of filteredMembers">
         <app-card-details [cardMember]="member"></app-card-details>
@@ -8,8 +10,8 @@
     </div>
   </div>
   
-</div> -->
+</div>
 <!-- <app-filter></app-filter> -->
 
 
-<app-counter></app-counter>
+<!-- <app-counter></app-counter> -->

@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { FilterComponent } from './filter/filter.component';
 import { CounterComponent } from './counter/counter.component';
+import { CreateFormComponent } from './create-form/create-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
     CardDetailsComponent,
-    CounterComponent
+    CounterComponent,
+    CreateFormComponent
   ],
   imports: [
     BrowserModule,

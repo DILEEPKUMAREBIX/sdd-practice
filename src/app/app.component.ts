@@ -18,18 +18,6 @@ export class AppComponent {
       'lastName': 'K',
       'age': 19,
       'salary': 20000
-    },
-    {
-      'firstName': 'Dileep2222',
-      'lastName': 'K',
-      'age': 39,
-      'salary': 30000
-    },
-    {
-      'firstName': 'Dileep33333',
-      'lastName': 'K',
-      'age': 49,
-      'salary': 40000
     }
   ]
   filteredMembers: any;
@@ -37,6 +25,10 @@ export class AppComponent {
 
   constructor() {
     this.filteredMembers = this.myFamilyMembers
+  }
+
+  onDataEntered(obj: any) {
+    this.filteredMembers.push(obj);
   }
   
 
