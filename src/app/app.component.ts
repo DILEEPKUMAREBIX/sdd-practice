@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -26,20 +27,19 @@ export class AppComponent {
 
 
   // dependenct injection
-  constructor(private httpClient: HttpClient) {
+  constructor(private appService: AppService) {
     this.filteredMembers = this.myFamilyMembers
   }
 
   pageNumber = 1
   //success and error call back functions
   ngOnInit() {
-    this.httpClient.get('https://reqres.in/api/users?page='+ this.pageNumber).subscribe(
-      (test: any) => {
-        console.log(test);
-        this.filteredMembers = test.data;
-        console.log(test.data[0].email)
+    this.appService.getAllUsers(this.pageNumber).subscribe(
+      (success: any)=>{
+        console.log(success);
+        this.filteredMembers = success.data;
       },
-      (error: any) => {
+      (error: any)=>{
         console.log(error);
       }
     )
@@ -47,7 +47,7 @@ export class AppComponent {
 
   nextPage() {
     this.pageNumber = this.pageNumber + 1;
-    this.httpClient.get('https://reqres.in/api/users?page=' + this.pageNumber).subscribe(
+    this.appService.getAllUsers(this.pageNumber).subscribe(
       (test: any) => {
         console.log(test);
         // this.filteredMembers.push(...test.data);
@@ -62,7 +62,7 @@ export class AppComponent {
 
   previousPage() {
     this.pageNumber = this.pageNumber - 1;
-    this.httpClient.get('https://reqres.in/api/users?page=' + this.pageNumber).subscribe(
+    this.appService.getAllUsers(this.pageNumber).subscribe(
       (test: any) => {
         console.log(test);
         // this.filteredMembers.push(...test.data);
