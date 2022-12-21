@@ -9,6 +9,7 @@ import { CardDetailsComponent } from './card-details/card-details.component';
 import { FilterComponent } from './filter/filter.component';
 import { CounterComponent } from './counter/counter.component';
 import { CreateFormComponent } from './create-form/create-form.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CreateFormComponent } from './create-form/create-form.component';
     FilterComponent,
     CardDetailsComponent,
     CounterComponent,
-    CreateFormComponent
+    CreateFormComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
