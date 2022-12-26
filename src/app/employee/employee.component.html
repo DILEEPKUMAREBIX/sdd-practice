@@ -1,5 +1,23 @@
 <div class="p-4">
     <h1>Employee Data CRUD</h1>
+
+    <div class="form-group p-3">
+        <h1>{{(isEdit == true) ? 'Update Employee': 'Create Employee'}} {{this._id}}</h1>
+        <label>Name</label>
+        <input class="form-control" type="text" [(ngModel)]="name"/>
+    
+        <label>Salary</label>
+        <input type="text" class="form-control" [(ngModel)]="salary"/>
+    
+        <label>Age</label>
+        <input type="text" class="form-control" [(ngModel)]="age"/>
+
+        <label>Photo</label>
+        <input type="text" class="form-control" [(ngModel)]="photo"/>
+    
+        <button class="btn btn-primary m-2 p-2" *ngIf="isEdit == false" (click)="onSubmit()">Submit</button>
+        <button class="btn btn-primary m-2 p-2" *ngIf="isEdit == true" (click)="onUpdate()">Update</button>
+    </div>
     <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
@@ -17,8 +35,9 @@
                 <td>{{item.name}}</td>
                 <td>{{item.age}}</td>
                 <td>{{item.salary}}</td>
-                <td><img style="height: 50px;width: 50px;" [src]="item.image" /></td>
-                <td><button class="btn btn-danger" (click)="deleteEmployee(item._id)">Delete</button></td>
+                <td><img style="height: 50px;width: 50px;" [src]="item.photo" /></td>
+                <td><button class="btn btn-danger" (click)="deleteEmployee(item._id)">Delete</button>
+                    <button class="btn btn-danger" (click)="editEmployee(item)">Edit</button></td>
             </tr>
         </tbody>
     </table>
