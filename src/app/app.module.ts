@@ -10,6 +10,9 @@ import { FilterComponent } from './filter/filter.component';
 import { CounterComponent } from './counter/counter.component';
 import { CreateFormComponent } from './create-form/create-form.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { LchComponent } from './lch/lch.component';
+import { HeaderComponent } from './header/header.component';
+import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { EmployeeComponent } from './employee/employee.component';
     CardDetailsComponent,
     CounterComponent,
     CreateFormComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    LchComponent,
+    HeaderComponent,
+    EmployeeCreateComponent
   ],
   imports: [
     BrowserModule,

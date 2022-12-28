@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -8,17 +9,18 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(private empService: EmployeeService) { }
+  constructor(private empService: EmployeeService, private router: Router) { }
 
   myEmployees: any = [];
 
-  name: any ='';
-  salary: any = '';
-  age: any = '';
-  photo: any = '';
+
 
   ngOnInit(): void {
     this.getEmployees();
+  }
+
+  onCreate() {
+    this.router.navigateByUrl('/employee/create');
   }
 
   getEmployees() {
@@ -37,7 +39,7 @@ export class EmployeeComponent implements OnInit {
     this.empService.deleteEmployee(empId).subscribe(
       (success: any) => {
         console.log(success);
-        this.getEmployees();
+        // this.getEmployees();
       },
       (error: any) => {
         console.log(error);
@@ -45,62 +47,6 @@ export class EmployeeComponent implements OnInit {
     )
   }
 
-  onSubmit() {
-    let employeeObj = {
-      'name': this.name,
-      'age': this.age,
-      'salary': this.salary,
-      'photo': this.photo
-    }
 
-    this.empService.createEmployee(employeeObj).subscribe(
-      (success: any) => {
-        console.log(success);
-        this.getEmployees();
-      },
-      (error: any) => {
-
-      }
-    )
-  }
-
-  _id: any = ''
-  isEdit: boolean = false;
-  editEmployee(editItem: any) {
-    this.name = editItem.name;
-    this.age = editItem.age;
-    this.salary = editItem.salary;
-    this.photo = editItem.photo;
-    this._id = editItem._id;
-
-    this.isEdit = true;
-  }
-
-  onUpdate() {
-    let employeeObj = {
-      'name': this.name,
-      'age': this.age,
-      'salary': this.salary,
-      'photo': this.photo,
-    }
-
-    this.empService.updateEmployee(employeeObj, this._id).subscribe(
-      (success: any) => {
-        console.log(success);
-        this.getEmployees();
-
-        this.name = '';
-        this.age = '';
-        this.salary = '';
-        this.photo = '';
-        this._id = '';
-
-        this.isEdit = false;
-      },
-      (error: any) => {
-
-      }
-    )
-  }
 
 }

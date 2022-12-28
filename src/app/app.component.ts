@@ -78,6 +78,10 @@ export class AppComponent {
   onDataEntered(obj: any) {
     this.filteredMembers.push(obj);
   }
+  showLCH = true;
+  removeLCH() {
+    this.showLCH = false;
+  }
 
 
 

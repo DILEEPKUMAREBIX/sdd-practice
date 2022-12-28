@@ -1,5 +1,3 @@
-
-
 <!-- <div class="p-3" style="border: 3px solid red;">
   <app-create-form (passMember)="onDataEntered($event)"></app-create-form>
   <div class="form-group p-3" >
@@ -15,7 +13,15 @@
 <label>{{pageNumber}}</label>
 <button (click)="nextPage()">Next Page</button> -->
 <!-- <app-filter></app-filter> -->
-
-
+<!-- <button (click)="removeLCH()">Remove LCH component</button>
+<div *ngIf="showLCH">
+  <app-lch [showLCH]="showLCH"></app-lch>
+</div> -->
+<!-- <app-lch [showLCH]="showLCH"></app-lch> -->
 <!-- <app-counter></app-counter> -->
-<app-employee></app-employee>
+<!-- <app-employee></app-employee> -->
+<app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
