@@ -20,7 +20,7 @@
                 <td>{{item.salary}}</td>
                 <td><img style="height: 50px;width: 50px;" [src]="item.photo" /></td>
                 <td><button class="btn btn-danger" (click)="deleteEmployee(item._id)">Delete</button>
-                    <button class="btn btn-danger" >Edit</button></td>
+                    <button class="btn btn-danger" (click)="onEdit(item._id)">Edit</button></td>
             </tr>
         </tbody>
     </table>

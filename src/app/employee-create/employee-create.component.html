@@ -15,9 +15,9 @@
         <label>Photo</label>
         <input type="text" class="form-control" [(ngModel)]="photo" />
 
-        <button class="btn btn-primary m-2 p-2 " [ngClass]="isEdit == false ? '' : 'buttonDisabled'"
+        <button class="btn btn-primary m-2 p-2 " *ngIf="isEdit == false"
             (click)="onSubmit()">Submit</button>
-        <button class="btn btn-primary m-2 p-2 " [ngClass]="isEdit == true ? '' : 'buttonDisabled'"
+        <button class="btn btn-primary m-2 p-2 " *ngIf="isEdit == true"
             (click)="onUpdate()">Update</button>
     </div>
 </div>

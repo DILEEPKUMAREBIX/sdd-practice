@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -9,12 +9,37 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeCreateComponent implements OnInit {
 
-  constructor(private empService: EmployeeService, private router: Router) { }
 
+  updateEmployeeId: any;
   name: any = '';
   salary: any = '';
   age: any = '';
   photo: any = '';
+  _id: any = '';
+
+  isEdit: boolean = false;
+
+  constructor(private empService: EmployeeService, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.updateEmployeeId = this.activatedRoute.snapshot.paramMap.get('id');
+    alert(this.updateEmployeeId)
+    if (this.updateEmployeeId != null) {
+      this.isEdit = true;
+      this.empService.getEmployeeId(this.updateEmployeeId).subscribe(
+        (success: any) => {
+          this.name = success.name;
+          this.salary = success.salary;
+          this.age = success.age;
+          this.photo = success.photo;
+          this._id = success._id;
+        },
+        (error: any) => {
+
+        }
+      )
+    } else {
+      this.isEdit = false;
+    }
+  }
 
   ngOnInit(): void {
   }
@@ -22,7 +47,7 @@ export class EmployeeCreateComponent implements OnInit {
   onList() {
     this.router.navigateByUrl('/employee');
   }
- 
+
 
   onSubmit() {
     let employeeObj = {
@@ -44,8 +69,7 @@ export class EmployeeCreateComponent implements OnInit {
     )
   }
 
-  _id: any = ''
-  isEdit: boolean = false;
+  
   editEmployee(editItem: any) {
     this.name = editItem.name;
     this.age = editItem.age;

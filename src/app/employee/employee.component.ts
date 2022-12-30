@@ -47,6 +47,7 @@ export class EmployeeComponent implements OnInit {
     )
   }
 
-
-
+  onEdit(empId: any) {
+    this.router.navigateByUrl('/employee/update/' + empId);
+  }
 }

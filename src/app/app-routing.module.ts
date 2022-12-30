@@ -13,10 +13,10 @@ const routes: Routes = [
     path: 'employee/create',
     component: EmployeeCreateComponent
   },
-  // {
-  //   path: 'employee/view/:id',
-  //   component: EmployeeViewComponent
-  // },
+  {
+    path: 'employee/update/:id',
+    component: EmployeeCreateComponent
+  },
   {
     path: 'counter',
     component: CounterComponent
